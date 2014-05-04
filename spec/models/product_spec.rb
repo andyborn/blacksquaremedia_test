@@ -1,5 +1,6 @@
 require 'spec_helper'
 
+
 describe Product do
   before(:each) do
     @product = FactoryGirl.build(:product)
