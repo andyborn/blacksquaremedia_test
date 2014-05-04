@@ -10,7 +10,7 @@ following requirements:
 3. Users should be able to add/edit orders
 4. Orders cannot be deleted
 5. Each order has an customisable order-date (must not be in the past when created) and a VAT
-(percentage) which should default to 20% but should be configurable (through an app-wide
+(percentage) which should default to 20 percent but should be configurable (through an app-wide
 constant)
 6. Orders can have multiple line items
 7. Each line item must belong to an order, reference a product and have a quantity > 0
