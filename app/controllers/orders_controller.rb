@@ -72,17 +72,7 @@ class OrdersController < ApplicationController
     end
   end
 
-  # DELETE /orders/1
-  # DELETE /orders/1.json
-  def destroy
-    @order = Order.find(params[:id])
-    @order.destroy
-
-    respond_to do |format|
-      format.html { redirect_to orders_url }
-      format.json { head :no_content }
-    end
-  end
+  
 
   
 end

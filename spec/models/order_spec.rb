@@ -30,5 +30,8 @@ describe Order do
     order.vat_rate.to_f.should equal(Blacksquareapp::Application::VAT)
   end
 
+  it 'can not be deleted' do
+    @order.destroy.should raise_error
+  end
   
 end

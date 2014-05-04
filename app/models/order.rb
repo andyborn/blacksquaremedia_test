@@ -14,4 +14,8 @@ class Order < ActiveRecord::Base
     errors.add(:order_date, "can't be in the past") if
       !order_date.blank? and order_date < Date.today
   end 
+
+  def destroy
+    raise 'Cannot destroy orders'
+  end
 end
