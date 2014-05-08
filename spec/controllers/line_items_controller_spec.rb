@@ -18,12 +18,17 @@ require 'spec_helper'
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
 
+
+
 describe LineItemsController do
+
+  let(:product) {FactoryGirl.create(:product)}
+  let(:order) {FactoryGirl.create(:order)}
 
   # This should return the minimal set of attributes required to create a valid
   # LineItem. As you add validations to LineItem, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { {order_id: 1, product_id: 1, quantity: 1  } }
+  let(:valid_attributes) { {order_id: order.id, product_id: product.id, quantity: 1  } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in

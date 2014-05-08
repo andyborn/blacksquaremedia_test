@@ -18,8 +18,12 @@ class Order < ActiveRecord::Base
     state :cancelled
 
     event :bump do
-      transitions from: :draft, to: :placed
+      transitions from: :draft, to: :placed, guard: :has_line_item?
     end
+  end
+
+  def has_line_item?
+    !self.line_items.empty?
   end
 
   def set_vat_default
@@ -32,6 +36,8 @@ class Order < ActiveRecord::Base
   end 
 
   def destroy
-    raise 'Cannot destroy orders'
+    errors.add(:base, 'Cannot destroy orders')
+    binding.pry
+    false
   end
 end

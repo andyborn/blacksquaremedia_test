@@ -3,6 +3,7 @@ require 'spec_helper'
 describe LineItem do
   
   let(:line_item) {build(:line_item)}
+ 
 
   it 'instantiates a new valid line item' do
     line_item.should be_valid
@@ -13,5 +14,11 @@ describe LineItem do
   
   it { should belong_to(:order) }
   it { should belong_to(:product) }
+
+  it{should validate_presence_of(:order_id)}
+  it{should validate_presence_of(:product_id)}
+
+  
+
 
 end

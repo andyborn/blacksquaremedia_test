@@ -23,7 +23,8 @@ describe Order do
   end
 
   it 'can not be deleted' do
-    order.destroy.should raise_error
+    order.destroy.should equal(false)
+    order.should have(1).error_on(:base)
   end
 
   it { should have_many(:line_items) }
@@ -35,6 +36,9 @@ describe Order do
       end
       
       it 'should change to "placed" on :bump' do
+        lineitem = build(:line_item)
+        # this method for creating a line item within the order instance needs revising
+        order.line_items << lineitem 
         order.bump
         order.should be_placed
       end
