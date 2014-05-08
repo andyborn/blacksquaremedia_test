@@ -1,4 +1,7 @@
 class Order < ActiveRecord::Base
+
+  include AASM
+
   attr_accessible :vat_rate, :order_date
   validates :vat_rate, :order_date, presence: true
 
@@ -7,6 +10,17 @@ class Order < ActiveRecord::Base
   has_many :line_items
 
   after_initialize :set_vat_default 
+
+  aasm do
+    state :draft, initial: true
+    state :placed
+    state :paid
+    state :cancelled
+
+    event :bump do
+      transitions from: :draft, to: :placed
+    end
+  end
 
   def set_vat_default
     self.vat_rate ||= Blacksquareapp::Application::VAT 

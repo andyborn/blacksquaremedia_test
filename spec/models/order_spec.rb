@@ -28,4 +28,23 @@ describe Order do
 
   it { should have_many(:line_items) }
   
+  describe 'states' do
+    describe ':draft' do
+      it 'should be the initial state of an order' do
+        order.should be_draft
+      end
+      
+      it 'should change to "placed" on :bump' do
+        order.bump
+        order.should be_placed
+      end
+    end
+
+    it 'should have four possible states' do
+      states_array = order.aasm.states.map(&:name)
+      bool = [:draft, :placed, :paid, :cancelled].all?{|state| states_array.include?(state)} && states_array.length == 4
+      bool.should equal(true)
+    end
+  end 
+
 end
