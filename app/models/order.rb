@@ -37,7 +37,7 @@ class Order < ActiveRecord::Base
 
   def destroy
     errors.add(:base, 'Cannot destroy orders')
-    binding.pry
+  
     false
   end
 end
