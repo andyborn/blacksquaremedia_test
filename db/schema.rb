@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140508124101) do
+ActiveRecord::Schema.define(:version => 20140508140400) do
 
   create_table "line_items", :force => true do |t|
     t.integer  "order_id"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20140508124101) do
     t.float    "vat_rate"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "aasm_state"
   end
 
   create_table "products", :force => true do |t|

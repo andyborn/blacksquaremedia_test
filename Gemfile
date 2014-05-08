@@ -6,6 +6,7 @@ gem 'rails', '3.2.17'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
+gem 'aasm'
 
 group :development, :test do
   gem 'rspec-rails'
