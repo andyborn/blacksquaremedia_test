@@ -25,5 +25,7 @@ describe Order do
   it 'can not be deleted' do
     order.destroy.should raise_error
   end
+
+  it { should have_many(:line_items) }
   
 end

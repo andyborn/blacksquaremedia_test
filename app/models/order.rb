@@ -4,6 +4,8 @@ class Order < ActiveRecord::Base
 
   validate :order_date_cannot_be_in_the_past, on: :create
 
+  has_many :line_items
+
   after_initialize :set_vat_default 
 
   def set_vat_default

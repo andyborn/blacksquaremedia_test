@@ -16,4 +16,8 @@ describe Product do
 
   it { should validate_numericality_of(:price).only_integer }
 
+  it { should have_many(:line_items) }
+
+  # Products cannot be deleted if they were previously ordered
+  it { should have_many(:orders).through(:line_items).dependent(:restrict) }
 end

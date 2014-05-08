@@ -1,9 +1,8 @@
 Blacksquareapp::Application.routes.draw do
-  resources :orders
+  resources :line_items
 
 
-  resources :products
-
+ 
 
   resources :orders
   resources :products
