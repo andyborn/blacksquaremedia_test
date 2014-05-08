@@ -35,13 +35,19 @@ describe Order do
         order.should be_draft
       end
       
-      it 'should change to "placed" on :bump' do
+      it 'should NOT change "draft" to "placed on :bump when order has no line_items' do
+        expect { order.bump }.to raise_error(AASM::InvalidTransition)
+      end
+
+      it 'should change "draft" to "placed" on :bump when order has line_item' do
         lineitem = build(:line_item)
         # this method for creating a line item within the order instance needs revising
         order.line_items << lineitem 
         order.bump
         order.should be_placed
       end
+
+
     end
 
     it 'should have four possible states' do
