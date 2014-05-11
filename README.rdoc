@@ -1,4 +1,4 @@
-Code test - WIP progress @ 4th May 2014, have completed steps 1,2,3,5
+Code test - WIP progress @ 8th May 2014, have completed/attempted steps 1-12
 
 Using PostGres database.  You will need to use command 'rake db:create' before running any migration.
 
@@ -10,8 +10,8 @@ following requirements:
 3. Users should be able to add/edit orders
 4. Orders cannot be deleted
 5. Each order has an customisable order-date (must not be in the past when created) and a VAT
-(percentage) which should default to 20 percent but should be configurable (through an app-wide
-constant)
+  (percentage) which should default to 20 percent but should be configurable (through an app-wide
+  constant)
 6. Orders can have multiple line items
 7. Each line item must belong to an order, reference a product and have a quantity > 0
 8. User should be able to add/edit/delete line items
@@ -19,18 +19,18 @@ constant)
 10.Orders can have the following statuses: DRAFT, PLACED, PAID, CANCELLED
 11.Newly created orders must be DRAFT
 12.An order's status can be "bumped" order from DRAFT to PLACED, but only if there is at
-least one line item
+  least one line item
 13.An order's status can change from DRAFT to CANCELLED, when this happens a short
-reason must be provided
+  reason must be provided
 14.An order's status can change from PLACED to PAID
 15.An order's status can change from PLACED to CANCELLED, when this happens a short
-reason must be provided
+  reason must be provided
 16.No other other status changes are permitted, e.g. an order's status can never change back to
-DRAFT
+  DRAFT
 17.Changes can be made to orders, including adding/editing/deleting line items, while the
-orders are DRAFTs
+  orders are DRAFTs
 18.Changes should not be permitted once the status is either PLACED, PAID or
-CANCELLED, neither to the order itself nor its line items
+  CANCELLED, neither to the order itself nor its line items
 19.Line items, when retrieved, should expose the product name to the API client
 20.Orders, when retrieved, should expose a net- and a gross-total (net total + VAT) to the API
 client
